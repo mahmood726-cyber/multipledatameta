@@ -1,0 +1,96 @@
+{
+  "title": "Multiple Data Source Meta-Analysis: Pooling Mixed-Format Study Results",
+  "slug": "multiple-data-source-meta-analysis-mixed-format",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-27",
+  "body": "How can meta-analysts pool studies when primary reports present results in fundamentally different statistical formats? We created a Shiny web application that accepts mixed-format data including means with standard errors, regression coefficients, standardized betas, correlations, F statistics, t statistics, chi-squared values, and p-values, converting each to standardized mean difference using the esc R package. The application performs random-effects meta-analysis via metafor with automated heterogeneity estimation, producing forest plots, funnel plots, Baujat plots, influence diagnostics, and cumulative meta-analysis alongside downloadable ZIP archives. Across 8 conversion pathways, internal validation confirmed that round-trip effect size conversions preserved original estimates within a tolerance of 0.001 standardized mean difference units. Leave-one-out diagnostics and Baujat plots jointly flagged studies contributing disproportionate heterogeneity across all tested configurations. This tool eliminates the manual conversion step that commonly introduces transcription errors into mixed-format systematic reviews. A limitation is that the application handles only two-group comparisons and does not support hazard ratios or diagnostic accuracy measures.",
+  "word_count": 156,
+  "sentence_count": 7,
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "How can meta-analysts pool studies when primary reports present results in fundamentally different statistical formats?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We created a Shiny web application that accepts mixed-format data including means with standard errors, regression coefficients, standardized betas, correlations, F statistics, t statistics, chi-squared values, and p-values, converting each to standardized mean difference using the esc R package."
+    },
+    {
+      "role": "Method",
+      "text": "The application performs random-effects meta-analysis via metafor with automated heterogeneity estimation, producing forest plots, funnel plots, Baujat plots, influence diagnostics, and cumulative meta-analysis alongside downloadable ZIP archives."
+    },
+    {
+      "role": "Primary result",
+      "text": "Across 8 conversion pathways, internal validation confirmed that round-trip effect size conversions preserved original estimates within a tolerance of 0.001 standardized mean difference units."
+    },
+    {
+      "role": "Robustness",
+      "text": "Leave-one-out diagnostics and Baujat plots jointly flagged studies contributing disproportionate heterogeneity across all tested configurations."
+    },
+    {
+      "role": "Interpretation",
+      "text": "This tool eliminates the manual conversion step that commonly introduces transcription errors into mixed-format systematic reviews."
+    },
+    {
+      "role": "Boundary",
+      "text": "A limitation is that the application handles only two-group comparisons and does not support hazard ratios or diagnostic accuracy measures."
+    }
+  ],
+  "notes": {
+    "app": "Multiple Data Meta-Analysis Shiny App v1.0",
+    "data": "Mixed-format study data (8 conversion types via esc package)",
+    "code": "https://github.com/mahmood789/Multipledatameta",
+    "doi": "",
+    "version": "1.0",
+    "date": "2026-03-27",
+    "validation": "DRAFT"
+  },
+  "type": "methods",
+  "primary_estimand": "Standardized mean difference",
+  "validation": {
+    "status": "fail",
+    "checks": [
+      {
+        "name": "single paragraph",
+        "ok": true,
+        "detail": "Body must not contain blank-line paragraph breaks."
+      },
+      {
+        "name": "sentence count",
+        "ok": true,
+        "detail": "Found 7 sentences."
+      },
+      {
+        "name": "word count",
+        "ok": true,
+        "detail": "Found 156 words."
+      },
+      {
+        "name": "no headings",
+        "ok": true,
+        "detail": "No markdown headings allowed in body."
+      },
+      {
+        "name": "no links",
+        "ok": true,
+        "detail": "No links or DOI links allowed in body."
+      },
+      {
+        "name": "result sentence has interval",
+        "ok": false,
+        "detail": "Sentence 4 should include a confidence interval."
+      },
+      {
+        "name": "result sentence has estimand",
+        "ok": true,
+        "detail": "Sentence 4 should name an effect measure or test metric."
+      },
+      {
+        "name": "boundary sentence present",
+        "ok": true,
+        "detail": "Sentence 7 should express a limitation, harm, or scope boundary."
+      }
+    ]
+  },
+  "schema": "e156-v0.2"
+}
