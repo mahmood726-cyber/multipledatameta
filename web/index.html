@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta-Analysis Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js for Plotting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="brand">MetaCalc Pro</div>
+        <nav>
+            <a href="#" class="nav-link active" data-target="upload">
+                <span>Upload Data</span>
+            </a>
+            <a href="#" class="nav-link" data-target="analysis">
+                <span>Meta-Analysis</span>
+            </a>
+            <a href="#" class="nav-link" data-target="plots">
+                <span>Forest Plot</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Upload Section -->
+        <div id="upload" class="content-section active">
+            <div class="card">
+                <h2>Data Upload</h2>
+                <p>Upload your CSV file with meta-analysis data. Supported formats: Mean & SE, T-tests, p-values, etc.
+                </p>
+
+                <div class="file-upload">
+                    <input type="file" id="csvFile" accept=".csv">
+                    <p>Drag & drop or Click to Upload CSV</p>
+                </div>
+
+                <div style="display:flex; gap:10px;">
+                    <button id="runAnalysisBtn" class="btn">Run Meta-Analysis</button>
+                    <button id="loadSampleBtn" class="btn btn-secondary">Load Sample Data</button>
+                </div>
+                <p id="upload-status" style="margin-top:10px; color:#666;"></p>
+            </div>
+
+            <div class="card">
+                <h3>Data Preview</h3>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Study</th>
+                                <th>Type</th>
+                                <th>Value 1</th>
+                                <th>N 1</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rawDataBody">
+                            <tr>
+                                <td colspan="4">No data loaded</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Section -->
+        <div id="analysis" class="content-section">
+            <div class="card">
+                <h2>Meta-Analysis Results</h2>
+                <div id="meta-results">
+                    <p>No analysis run yet.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Computed Effects</h3>
+                <div style="overflow-x:auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Study</th>
+                                <th>Effect Size (yi)</th>
+                                <th>Variance (vi)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="computedDataBody">
+                            <tr>
+                                <td colspan="3">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plots Section -->
+        <div id="plots" class="content-section">
+            <div class="card">
+                <h2>Forest Plot</h2>
+                <div class="plot-container">
+                    <canvas id="forestChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Logic -->
+    <script src="js/stats.js"></script>
+    <script src="js/plots.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
